@@ -3,15 +3,15 @@ public class Length {
     public static final String FOOT = "foot";
     public static final String YARD = "yard";
     public static final String INCH = "inch";
-    private Unit temp_unit;
+    private Unit unit;
 
     public Length(double value, String unit) {
         this(value, determineUnit(unit));
     }
 
-    public Length(double value, Unit temp_unit) {
+    public Length(double value, Unit unit) {
         this.value = value;
-        this.temp_unit = temp_unit;
+        this.unit = unit;
     }
 
     public Length as(String targetUnit) {
@@ -36,7 +36,7 @@ public class Length {
     private Length temp_as(String targetUnit, Unit temp_unit) {
         Length result = this;
 
-        if (this.temp_unit == Unit.FOOT) {
+        if (this.unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
                 result = new Length(this.value / 3, targetUnit);
             } else if (temp_unit == Unit.INCH) {
@@ -44,7 +44,7 @@ public class Length {
             }
         }
 
-        if (this.temp_unit == Unit.YARD) {
+        if (this.unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
                 result = new Length(this.value * 36, targetUnit);
             } else if (temp_unit == Unit.FOOT){
@@ -52,7 +52,7 @@ public class Length {
             }
         }
 
-        if (this.temp_unit == Unit.INCH) {
+        if (this.unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
                 result = new Length(this.value / 12, targetUnit);
             } else if (temp_unit == Unit.YARD) {
@@ -68,6 +68,6 @@ public class Length {
     }
 
     public Unit getUnit() {
-        return this.temp_unit;
+        return this.unit;
     }
 }
