@@ -15,8 +15,7 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
-        Unit temp_unit = determineUnit(targetUnit);
-        return temp_as(temp_unit);
+        return temp_as(determineUnit(targetUnit));
     }
 
     private static Unit determineUnit(String targetUnit) {
