@@ -17,6 +17,11 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
+        Unit temp_unit = convetStringToEnum(targetUnit);
+        return temp_as(targetUnit, temp_unit);
+    }
+
+    private Unit convetStringToEnum(String targetUnit) {
         Unit temp_unit = null;
         if (targetUnit.equals(Length.FOOT)) {
             temp_unit = Unit.FOOT;
@@ -27,7 +32,7 @@ public class Length {
         if (targetUnit.equals(Length.INCH)) {
             temp_unit = Unit.INCH;
         }
-        return temp_as(targetUnit, temp_unit);
+        return temp_unit;
     }
 
     public Length temp_as(String targetUnit, Unit temp_unit) {
