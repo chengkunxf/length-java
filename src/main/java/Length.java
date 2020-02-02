@@ -15,8 +15,7 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
-        Unit temp_unit = convetStringToEnum(targetUnit);
-        return temp_as(temp_unit);
+        return temp_as(convetStringToEnum(targetUnit));
     }
 
     private static Unit convetStringToEnum(String targetUnit) {
