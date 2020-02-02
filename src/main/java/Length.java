@@ -10,30 +10,30 @@ public class Length {
         this.unit = unit;
     }
 
-    public Length temp_as(Unit temp_unit) {
+    public Length as(Unit unit) {
         Length result = this;
 
         if (this.unit == Unit.FOOT) {
-            if (temp_unit == Unit.YARD) {
-                result = new Length(this.value / 3, temp_unit);
-            } else if (temp_unit == Unit.INCH) {
-                result = new Length(this.value * 12, temp_unit);
+            if (unit == Unit.YARD) {
+                result = new Length(this.value / 3, unit);
+            } else if (unit == Unit.INCH) {
+                result = new Length(this.value * 12, unit);
             }
         }
 
         if (this.unit == Unit.YARD) {
-            if (temp_unit == Unit.INCH) {
-                result = new Length(this.value * 36, temp_unit);
-            } else if (temp_unit == Unit.FOOT){
-                result = new Length(this.value * 3, temp_unit);
+            if (unit == Unit.INCH) {
+                result = new Length(this.value * 36, unit);
+            } else if (unit == Unit.FOOT){
+                result = new Length(this.value * 3, unit);
             }
         }
 
         if (this.unit == Unit.INCH) {
-            if (temp_unit == Unit.FOOT) {
-                result = new Length(this.value / 12, temp_unit);
-            } else if (temp_unit == Unit.YARD) {
-                result = new Length(this.value / 36, temp_unit);
+            if (unit == Unit.FOOT) {
+                result = new Length(this.value / 12, unit);
+            } else if (unit == Unit.YARD) {
+                result = new Length(this.value / 36, unit);
             }
         }
 
