@@ -10,24 +10,6 @@ public class Length {
         this.unit = unit;
     }
 
-    public Length as(String targetUnit) {
-        return temp_as(determineUnit(targetUnit));
-    }
-
-    private static Unit determineUnit(String targetUnit) {
-        Unit temp_unit = null;
-        if (targetUnit.equals(Length.FOOT)) {
-            temp_unit = Unit.FOOT;
-        }
-        if (targetUnit.equals(Length.INCH)) {
-            temp_unit = Unit.INCH;
-        }
-        if (targetUnit.equals(Length.YARD)) {
-            temp_unit = Unit.YARD;
-        }
-        return temp_unit;
-    }
-
     public Length temp_as(Unit temp_unit) {
         Length result = this;
 
