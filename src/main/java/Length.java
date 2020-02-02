@@ -10,7 +10,7 @@ public class Length {
         this.temp_unit = temp_unit;
     }
 
-    public Length temp_as(Unit temp_unit) {
+    public Length as(Unit temp_unit) {
         Length result = this;
         if (this.temp_unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
