@@ -3,16 +3,14 @@ public class Length {
     public static final String YARD = "yard";
     public static final String INCH = "inch";
     private final double value;
-    private final String unit;
     private Unit temp_unit;
 
     public Length(double value, String unit) {
-        this(value, unit, convetStringToEnum(unit));
+        this(value, convetStringToEnum(unit));
     }
 
-    public Length(double value, String unit, Unit temp_unit) {
+    public Length(double value, Unit temp_unit) {
         this.value = value;
-        this.unit = unit;
         this.temp_unit = temp_unit;
     }
 
@@ -66,10 +64,6 @@ public class Length {
 
     public double getValue() {
         return this.value;
-    }
-
-    public String getUnit() {
-        return this.unit;
     }
 
     public Unit getTemp_unit() {
