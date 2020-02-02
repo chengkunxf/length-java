@@ -7,8 +7,7 @@ public class Length {
     private Unit temp_unit;
 
     public Length(double value, String unit) {
-        this.value = value;
-        this.unit = unit;
+        this(value, unit, null);
     }
 
     public Length(double value, String unit, Unit temp_unit) {
@@ -18,6 +17,11 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
+        Unit temp_unit = determineUnit(targetUnit);
+        return temp_as(targetUnit, temp_unit);
+    }
+
+    private Unit determineUnit(String targetUnit) {
         Unit temp_unit = null;
         if (targetUnit.equals(Length.FOOT)) {
             temp_unit = Unit.FOOT;
@@ -28,7 +32,7 @@ public class Length {
         if (targetUnit.equals(Length.YARD)) {
             temp_unit = Unit.YARD;
         }
-        return temp_as(targetUnit, temp_unit);
+        return temp_unit;
     }
 
     private Length temp_as(String targetUnit, Unit temp_unit) {
