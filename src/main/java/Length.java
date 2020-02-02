@@ -16,7 +16,7 @@ public class Length {
 
     public Length as(String targetUnit) {
         Unit temp_unit = determineUnit(targetUnit);
-        return temp_as(targetUnit, temp_unit);
+        return temp_as(temp_unit);
     }
 
     private static Unit determineUnit(String targetUnit) {
@@ -33,7 +33,7 @@ public class Length {
         return temp_unit;
     }
 
-    private Length temp_as(String targetUnit, Unit temp_unit) {
+    private Length temp_as(Unit temp_unit) {
         Length result = this;
 
         if (this.unit == Unit.FOOT) {
