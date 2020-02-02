@@ -16,7 +16,7 @@ public class Length {
 
     public Length as(String targetUnit) {
         Unit temp_unit = convetStringToEnum(targetUnit);
-        return temp_as(targetUnit, temp_unit);
+        return temp_as(temp_unit);
     }
 
     private static Unit convetStringToEnum(String targetUnit) {
@@ -33,29 +33,29 @@ public class Length {
         return temp_unit;
     }
 
-    public Length temp_as(String targetUnit, Unit temp_unit) {
+    public Length temp_as(Unit temp_unit) {
         Length result = this;
         if (this.temp_unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
-                result = new Length(this.value / 3, targetUnit);
+                result = new Length(this.value / 3, temp_unit);
             } else if (temp_unit == Unit.INCH) {
-                result = new Length(this.value * 12, targetUnit);
+                result = new Length(this.value * 12, temp_unit);
             }
         }
 
         if (this.temp_unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
-                result = new Length(this.value * 36, targetUnit);
+                result = new Length(this.value * 36, temp_unit);
             } else if (temp_unit == Unit.FOOT) {
-                result = new Length(this.value * 3, targetUnit);
+                result = new Length(this.value * 3, temp_unit);
             }
         }
 
         if (this.temp_unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
-                result = new Length(this.value / 12, targetUnit);
+                result = new Length(this.value / 12, temp_unit);
             } else if (temp_unit == Unit.YARD) {
-                result = new Length(this.value / 36, targetUnit);
+                result = new Length(this.value / 36, temp_unit);
             }
         }
 
