@@ -7,10 +7,10 @@ public class Length {
     private Unit temp_unit;
 
     public Length(double value, String unit) {
-        this(value,unit,null);
+        this(value, unit, convetStringToEnum(unit));
     }
 
-    public Length(double value, String unit,Unit temp_unit) {
+    public Length(double value, String unit, Unit temp_unit) {
         this.value = value;
         this.unit = unit;
         this.temp_unit = temp_unit;
@@ -21,7 +21,7 @@ public class Length {
         return temp_as(targetUnit, temp_unit);
     }
 
-    private Unit convetStringToEnum(String targetUnit) {
+    private static Unit convetStringToEnum(String targetUnit) {
         Unit temp_unit = null;
         if (targetUnit.equals(Length.FOOT)) {
             temp_unit = Unit.FOOT;
