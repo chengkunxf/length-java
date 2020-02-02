@@ -40,23 +40,23 @@ public class Length {
             if (temp_unit == Unit.YARD) {
                 result = new Length(this.value / 3, temp_unit);
             } else if (temp_unit == Unit.INCH) {
-                result = new Length(this.value * 12, targetUnit);
+                result = new Length(this.value * 12, temp_unit);
             }
         }
 
         if (this.unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
-                result = new Length(this.value * 36, targetUnit);
+                result = new Length(this.value * 36, temp_unit);
             } else if (temp_unit == Unit.FOOT){
-                result = new Length(this.value * 3, targetUnit);
+                result = new Length(this.value * 3, temp_unit);
             }
         }
 
         if (this.unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
-                result = new Length(this.value / 12, targetUnit);
+                result = new Length(this.value / 12, temp_unit);
             } else if (temp_unit == Unit.YARD) {
-                result = new Length(this.value / 36, targetUnit);
+                result = new Length(this.value / 36, temp_unit);
             }
         }
 
