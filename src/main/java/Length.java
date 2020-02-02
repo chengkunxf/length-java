@@ -4,10 +4,17 @@ public class Length {
     public static final String FOOT = "foot";
     public static final String YARD = "yard";
     public static final String INCH = "inch";
+    private Unit temp_unit;
 
     public Length(double value, String unit) {
         this.value = value;
         this.unit = unit;
+    }
+
+    public Length(double value, String unit, Unit temp_unit) {
+        this.value = value;
+        this.unit = unit;
+        this.temp_unit = temp_unit;
     }
 
     public Length as(String targetUnit) {
