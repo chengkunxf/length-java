@@ -10,24 +10,6 @@ public class Length {
         this.temp_unit = temp_unit;
     }
 
-    public Length as(String targetUnit) {
-        return temp_as(convetStringToEnum(targetUnit));
-    }
-
-    private static Unit convetStringToEnum(String targetUnit) {
-        Unit temp_unit = null;
-        if (targetUnit.equals(Length.FOOT)) {
-            temp_unit = Unit.FOOT;
-        }
-        if (targetUnit.equals(Length.YARD)) {
-            temp_unit = Unit.YARD;
-        }
-        if (targetUnit.equals(Length.INCH)) {
-            temp_unit = Unit.INCH;
-        }
-        return temp_unit;
-    }
-
     public Length temp_as(Unit temp_unit) {
         Length result = this;
         if (this.temp_unit == Unit.FOOT) {
