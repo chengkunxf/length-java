@@ -18,6 +18,9 @@ public class Length {
         if (targetUnit.equals(Length.YARD)) {
             temp_unit = Unit.YARD;
         }
+        if (targetUnit.equals(Length.INCH)) {
+            temp_unit = Unit.INCH;
+        }
         return temp_as(targetUnit, temp_unit);
     }
 
@@ -26,13 +29,13 @@ public class Length {
         if (this.unit.equals(FOOT)) {
             if (temp_unit == Unit.YARD) {
                 result = new Length(this.value / 3, targetUnit);
-            } else if (targetUnit.equals(INCH)) {
+            } else if (temp_unit == Unit.INCH) {
                 result = new Length(this.value * 12, targetUnit);
             }
         }
 
         if (this.unit.equals(YARD)) {
-            if (targetUnit.equals(INCH)) {
+            if (temp_unit == Unit.INCH) {
                 result = new Length(this.value * 36, targetUnit);
             } else if (temp_unit == Unit.FOOT) {
                 result = new Length(this.value * 3, targetUnit);

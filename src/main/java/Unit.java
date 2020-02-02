@@ -1,3 +1,3 @@
 public enum Unit {
-    YARD, FOOT
+    YARD, INCH, FOOT
 }
