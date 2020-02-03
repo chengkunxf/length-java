@@ -7,7 +7,7 @@ public class Length {
     private Unit temp_unit;
 
     public Length(double value, String unit) {
-        this(value, unit, null);
+        this(value, unit, convertStringToEnum(unit));
     }
 
     public Length(double value, String unit, Unit temp_unit) {
@@ -17,22 +17,12 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
-        Unit temp_unit = null;
-        if (targetUnit == Length.YARD) {
-            temp_unit = Unit.YARD;
-        }
-        if (targetUnit == Length.INCH) {
-            temp_unit = Unit.INCH;
-        }
-        if (targetUnit == Length.FOOT) {
-            temp_unit = Unit.FOOT;
-        }
-        return temp_as(targetUnit, temp_unit);
+        return temp_as(targetUnit, convertStringToEnum(targetUnit));
     }
 
     public Length temp_as(String targetUnit, Unit temp_unit) {
         Length result = this;
-        if (this.unit.equals(FOOT)) {
+        if (this.temp_unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
                 result = new Length(this.value / 3, targetUnit);
             } else if (temp_unit == Unit.INCH) {
@@ -40,7 +30,7 @@ public class Length {
             }
         }
 
-        if (this.unit.equals(YARD)) {
+        if (this.temp_unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
                 result = new Length(this.value * 36, targetUnit);
             } else if (temp_unit == Unit.FOOT) {
@@ -48,7 +38,7 @@ public class Length {
             }
         }
 
-        if (this.unit.equals(INCH)) {
+        if (this.temp_unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
                 result = new Length(this.value / 12, targetUnit);
             } else if (temp_unit == Unit.YARD) {
@@ -57,6 +47,20 @@ public class Length {
         }
 
         return result;
+    }
+
+    private static Unit convertStringToEnum(String unit) {
+        Unit temp_unit = null;
+        if (unit == Length.YARD) {
+            temp_unit = Unit.YARD;
+        }
+        if (unit == Length.INCH) {
+            temp_unit = Unit.INCH;
+        }
+        if (unit == Length.FOOT) {
+            temp_unit = Unit.FOOT;
+        }
+        return temp_unit;
     }
 
     public double getValue() {
