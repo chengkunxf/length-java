@@ -30,10 +30,10 @@ public class Length {
 
 
     public Length as(String targetUnit) {
-        return temp_as(targetUnit, convertStringToEnum(targetUnit));
+        return temp_as(convertStringToEnum(targetUnit));
     }
 
-    public Length temp_as(String targetUnit, Unit temp_unit) {
+    public Length temp_as(Unit temp_unit) {
         Length result = this;
         if (this.temp_unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
