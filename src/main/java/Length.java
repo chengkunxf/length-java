@@ -4,21 +4,27 @@ public class Length {
     public static final String INCH = "inch";
     private final double value;
     private final String unit;
+    private Unit temp_unit;
 
     public Length(double value, String unit) {
+        this(value, unit, null);
+    }
+
+    public Length(double value, String unit, Unit temp_unit) {
         this.value = value;
         this.unit = unit;
+        this.temp_unit = temp_unit;
     }
 
     public Length as(String targetUnit) {
         Unit temp_unit = null;
-        if(targetUnit.equals(Length.YARD)){
+        if (targetUnit.equals(Length.YARD)) {
             temp_unit = Unit.YARD;
         }
-        if(targetUnit.equals(Length.FOOT)){
+        if (targetUnit.equals(Length.FOOT)) {
             temp_unit = Unit.FOOT;
         }
-        if(targetUnit.equals(Length.INCH)){
+        if (targetUnit.equals(Length.INCH)) {
             temp_unit = Unit.INCH;
         }
         return temp_as(targetUnit, temp_unit);
