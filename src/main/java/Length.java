@@ -3,11 +3,15 @@ public class Length {
     public static final String YARD = "yard";
     public static final String INCH = "inch";
     private final double value;
-    private final String unit;
     private Unit temp_unit;
 
     public Length(double value, String unit) {
-        this(value, unit, convertStringToEnum(unit));
+        this(value, convertStringToEnum(unit));
+    }
+
+    public Length(double value, Unit temp_unit) {
+        this.value = value;
+        this.temp_unit = temp_unit;
     }
 
     private static Unit convertStringToEnum(String unit) {
@@ -24,12 +28,6 @@ public class Length {
         return temp_unit;
     }
 
-    public Length(double value, String unit, Unit temp_unit) {
-        this.value = value;
-        this.unit = unit;
-        this.temp_unit = temp_unit;
-    }
-
     public Length as(String targetUnit) {
         Unit temp_unit = convertStringToEnum(targetUnit);
         return temp_as(targetUnit, temp_unit);
@@ -37,7 +35,7 @@ public class Length {
 
     public Length temp_as(String targetUnit, Unit temp_unit) {
         Length result = this;
-        if (this.unit.equals(FOOT)) {
+        if (this.temp_unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
                 result = new Length(this.value / 3, targetUnit);
             } else if (temp_unit == Unit.INCH) {
@@ -45,7 +43,7 @@ public class Length {
             }
         }
 
-        if (this.unit.equals(YARD)) {
+        if (this.temp_unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
                 result = new Length(this.value * 36, targetUnit);
             } else if (temp_unit == Unit.FOOT) {
@@ -53,7 +51,7 @@ public class Length {
             }
         }
 
-        if (this.unit.equals(INCH)) {
+        if (this.temp_unit == Unit.INCH) {
             if (targetUnit.equals(FOOT)) {
                 result = new Length(this.value / 12, targetUnit);
             } else if (temp_unit == Unit.YARD) {
@@ -66,10 +64,6 @@ public class Length {
 
     public double getValue() {
         return this.value;
-    }
-
-    public String getUnit() {
-        return this.unit;
     }
 
     public Unit getTemp_unit() {
