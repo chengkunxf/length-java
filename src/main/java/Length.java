@@ -5,31 +5,9 @@ public class Length {
     private final double value;
     private Unit temp_unit;
 
-    public Length(double value, String unit) {
-        this(value, convertStringToEnum(unit));
-    }
-
     public Length(double value, Unit temp_unit) {
         this.value = value;
         this.temp_unit = temp_unit;
-    }
-
-    private static Unit convertStringToEnum(String unit) {
-        Unit temp_unit = null;
-        if (unit.equals(Length.YARD)) {
-            temp_unit = Unit.YARD;
-        }
-        if (unit.equals(Length.FOOT)) {
-            temp_unit = Unit.FOOT;
-        }
-        if (unit.equals(Length.INCH)) {
-            temp_unit = Unit.INCH;
-        }
-        return temp_unit;
-    }
-
-    public Length as(String targetUnit) {
-        return temp_as(convertStringToEnum(targetUnit));
     }
 
     public Length temp_as(Unit temp_unit) {
