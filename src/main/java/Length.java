@@ -32,8 +32,7 @@ public class Length {
 
 
     public Length as(String targetUnit) {
-        Unit temp_unit = convertStringToEnum(targetUnit);
-        return temp_as(targetUnit, temp_unit);
+        return temp_as(targetUnit, convertStringToEnum(targetUnit));
     }
 
     public Length temp_as(String targetUnit, Unit temp_unit) {
@@ -71,5 +70,9 @@ public class Length {
 
     public String getUnit() {
         return this.unit;
+    }
+
+    public Unit getTemp_unit() {
+        return temp_unit;
     }
 }
