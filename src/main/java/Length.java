@@ -4,23 +4,34 @@ public class Length {
     public static final String INCH = "inch";
     private final double value;
     private final String unit;
+    private Unit temp_unit;
 
     public Length(double value, String unit) {
+        this(value, unit, convertStringToEnum(unit));
+    }
+
+    private static Unit convertStringToEnum(String unit) {
+        Unit temp_unit = null;
+        if (unit.equals(Length.YARD)) {
+            temp_unit = Unit.YARD;
+        }
+        if (unit.equals(Length.INCH)) {
+            temp_unit = Unit.INCH;
+        }
+        if (unit.equals(Length.FOOT)) {
+            temp_unit = Unit.FOOT;
+        }
+        return temp_unit;
+    }
+
+    public Length(double value, String unit, Unit temp_unit) {
         this.value = value;
         this.unit = unit;
+        this.temp_unit = temp_unit;
     }
 
     public Length as(String targetUnit) {
-        Unit temp_unit = null;
-        if (targetUnit.equals(Length.YARD)) {
-            temp_unit = Unit.YARD;
-        }
-        if (targetUnit.equals(Length.INCH)) {
-            temp_unit = Unit.INCH;
-        }
-        if (targetUnit.equals(Length.FOOT)) {
-            temp_unit = Unit.FOOT;
-        }
+        Unit temp_unit = convertStringToEnum(targetUnit);
         return temp_as(targetUnit, temp_unit);
     }
 
