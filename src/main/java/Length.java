@@ -39,20 +39,6 @@ public class Length {
         return result;
     }
 
-    private static Unit convertStringToEnum(String unit) {
-        Unit temp_unit = null;
-        if (unit.equals(YARD)) {
-            temp_unit = Unit.YARD;
-        }
-        if (unit.equals(INCH)) {
-            temp_unit = Unit.INCH;
-        }
-        if (unit.equals(FOOT)) {
-            temp_unit = Unit.FOOT;
-        }
-        return temp_unit;
-    }
-
     public double getValue() {
         return this.value;
     }
