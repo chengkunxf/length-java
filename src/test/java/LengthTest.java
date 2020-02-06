@@ -14,7 +14,7 @@ public class LengthTest {
 
     @Test
     public void should_2_feet_equals_2_feet() {
-        Length result = new Length(2, Length.FOOT).as(Length.FOOT);
+        Length result = new Length(2,Unit.FOOT).as(Length.FOOT);
 
         assertThat(result.getValue(), is(2.0));
         assertThat(result.getTemp_unit(), is(Unit.FOOT));
