@@ -9,7 +9,7 @@ public class LengthTest {
         Length result = new Length(1, Length.INCH).as(Length.INCH);
 
         assertThat(result.getValue(), is(1.0));
-        assertThat(result.getTemp_unit(), is(Length.INCH));
+        assertThat(result.getTemp_unit(), is(Unit.INCH));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class LengthTest {
         Length result = new Length(2, Length.FOOT).as(Length.FOOT);
 
         assertThat(result.getValue(), is(2.0));
-        assertThat(result.getTemp_unit(), is(Length.FOOT));
+        assertThat(result.getTemp_unit(), is(Unit.FOOT));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class LengthTest {
         Length result = new Length(1, Length.YARD).as(Length.YARD);
 
         assertThat(result.getValue(), is(1.0));
-        assertThat(result.getTemp_unit(), is(Length.YARD));
+        assertThat(result.getTemp_unit(), is(Unit.YARD));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class LengthTest {
         Length result = new Length(1, Length.FOOT).as(Length.INCH);
 
         assertThat(result.getValue(), is(12.0));
-        assertThat(result.getTemp_unit(), is(Length.INCH));
+        assertThat(result.getTemp_unit(), is(Unit.INCH));
     }
 
     @Test
@@ -41,7 +41,7 @@ public class LengthTest {
         Length result = new Length(3, Length.FOOT).as(Length.YARD);
 
         assertThat(result.getValue(), is(1.0));
-        assertThat(result.getTemp_unit(), is(Length.YARD));
+        assertThat(result.getTemp_unit(), is(Unit.YARD));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class LengthTest {
         Length result = new Length(1, Length.YARD).as(Length.FOOT);
 
         assertThat(result.getValue(), is(3.0));
-        assertThat(result.getTemp_unit(), is(Length.FOOT));
+        assertThat(result.getTemp_unit(), is(Unit.FOOT));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class LengthTest {
         Length result = new Length(1, Length.YARD).as(Length.INCH);
 
         assertThat(result.getValue(), is(36.0));
-        assertThat(result.getTemp_unit(), is(Length.INCH));
+        assertThat(result.getTemp_unit(), is(Unit.INCH));
     }
 
     @Test
@@ -65,7 +65,7 @@ public class LengthTest {
         Length result = new Length(2, Length.YARD).as(Length.INCH);
 
         assertThat(result.getValue(), is(72.0));
-        assertThat(result.getTemp_unit(), is(Length.INCH));
+        assertThat(result.getTemp_unit(), is(Unit.INCH));
     }
 
     @Test
@@ -73,7 +73,7 @@ public class LengthTest {
         Length result = new Length(12, Length.INCH).as(Length.FOOT);
 
         assertThat(result.getValue(), is(1.0));
-        assertThat(result.getTemp_unit(), is(Length.FOOT));
+        assertThat(result.getTemp_unit(), is(Unit.FOOT));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class LengthTest {
         Length result = new Length(36, Length.INCH).as(Length.YARD);
 
         assertThat(result.getValue(), is(1.0));
-        assertThat(result.getTemp_unit(), is(Length.YARD));
+        assertThat(result.getTemp_unit(), is(Unit.YARD));
     }
 
     @Test
@@ -89,6 +89,6 @@ public class LengthTest {
         Length result = new Length(18, Length.INCH).as(Length.YARD);
 
         assertThat(result.getValue(), is(0.5));
-        assertThat(result.getTemp_unit(), is(Length.YARD));
+        assertThat(result.getTemp_unit(), is(Unit.YARD));
     }
 }
