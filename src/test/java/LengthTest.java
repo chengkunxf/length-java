@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 public class LengthTest {
     @Test
     public void should_1_inch_equals_1_inch() {
-        Length result = new Length(1, Length.INCH).as(Length.INCH);
+        Length result = new Length(1, Unit.INCH).as(Length.INCH);
 
         assertThat(result.getValue(), is(1.0));
         assertThat(result.getTemp_unit(), is(Unit.INCH));
