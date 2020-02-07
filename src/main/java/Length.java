@@ -19,7 +19,8 @@ public class Length {
         if (this.unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
                 return value / 3;
-            } else if (temp_unit == Unit.INCH) {
+            }
+            if (temp_unit == Unit.INCH) {
                 value = value * 12;
             }
         }
