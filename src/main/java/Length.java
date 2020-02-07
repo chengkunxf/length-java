@@ -5,10 +5,6 @@ public class Length {
     private final double value;
     private Unit temp_unit;
 
-    public Length(double value, String unit) {
-        this(value, convertStringToEnum(unit));
-    }
-
     private static Unit convertStringToEnum(String unit) {
         Unit temp_unit = null;
         if (unit.equals(Length.YARD)) {
