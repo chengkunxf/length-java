@@ -3,34 +3,16 @@ public class Length {
     public static final String YARD = "yard";
     public static final String INCH = "inch";
     private final double value;
-    private Unit temp_unit;
-
-    private static Unit convertStringToEnum(String unit) {
-        Unit temp_unit = null;
-        if (unit.equals(Length.YARD)) {
-            temp_unit = Unit.YARD;
-        }
-        if (unit.equals(Length.INCH)) {
-            temp_unit = Unit.INCH;
-        }
-        if (unit.equals(Length.FOOT)) {
-            temp_unit = Unit.FOOT;
-        }
-        return temp_unit;
-    }
+    private Unit unit;
 
     public Length(double value, Unit temp_unit) {
         this.value = value;
-        this.temp_unit = temp_unit;
+        this.unit = temp_unit;
     }
 
-    public Length as(String targetUnit) {
-        return temp_as(convertStringToEnum(targetUnit));
-    }
-
-    public Length temp_as(Unit temp_unit) {
+    public Length as(Unit temp_unit) {
         Length result = this;
-        if (this.temp_unit == Unit.FOOT) {
+        if (this.unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
                 result = new Length(this.value / 3, temp_unit);
             } else if (temp_unit == Unit.INCH) {
@@ -38,7 +20,7 @@ public class Length {
             }
         }
 
-        if (this.temp_unit == Unit.YARD) {
+        if (this.unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
                 result = new Length(this.value * 36, temp_unit);
             } else if (temp_unit == Unit.FOOT) {
@@ -46,7 +28,7 @@ public class Length {
             }
         }
 
-        if (this.temp_unit == Unit.INCH) {
+        if (this.unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
                 result = new Length(this.value / 12, temp_unit);
             } else if (temp_unit == Unit.YARD) {
@@ -61,7 +43,7 @@ public class Length {
         return this.value;
     }
 
-    public Unit getTemp_unit() {
-        return temp_unit;
+    public Unit getUnit() {
+        return unit;
     }
 }
