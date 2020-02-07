@@ -11,32 +11,38 @@ public class Length {
     }
 
     public Length as(Unit temp_unit) {
-        Length result = this;
         double value = this.value;
+        Length result = new Length(value, temp_unit);
         if (this.unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
-                result = new Length(value / 3, temp_unit);
+                value = value / 3;
+                result = new Length(value, temp_unit);
             } else if (temp_unit == Unit.INCH) {
-                result = new Length(value * 12, temp_unit);
+                value = value * 12;
+                result = new Length(value, temp_unit);
             }
         }
 
         if (this.unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
-                result = new Length(value * 36, temp_unit);
+                value = value * 36;
+                result = new Length(value, temp_unit);
             } else if (temp_unit == Unit.FOOT) {
-                result = new Length(value * 3, temp_unit);
+                value = value * 3;
+                result = new Length(value, temp_unit);
             }
         }
 
         if (this.unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
-                result = new Length(value / 12, temp_unit);
+                value = value / 12;
+                result = new Length(value, temp_unit);
             } else if (temp_unit == Unit.YARD) {
-                result = new Length(value / 36, temp_unit);
+                value = value / 36;
             }
         }
 
+        result = new Length(value, temp_unit);
         return result;
     }
 
