@@ -11,7 +11,6 @@ public class Length {
     }
 
     public Length as(Unit temp_unit) {
-        Length result = this;
         double value = this.value;
         if (this.unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
@@ -37,8 +36,7 @@ public class Length {
             }
         }
 
-        result = new Length(value, temp_unit);
-        return result;
+        return new Length(value, temp_unit);
     }
 
     public double getValue() {
