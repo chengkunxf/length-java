@@ -11,8 +11,7 @@ public class Length {
     }
 
     public Length as(Unit unit) {
-        double value = calculateValue(unit);
-        return new Length(value, unit);
+        return new Length(calculateValue(unit), unit);
     }
 
     private double calculateValue(Unit unit) {
@@ -20,7 +19,8 @@ public class Length {
         if (this.unit == Unit.FOOT) {
             if (unit == Unit.YARD) {
                 value = value / 3;
-            } else if (unit == Unit.INCH) {
+            }
+            if (unit == Unit.INCH) {
                 value = value * 12;
             }
         }
