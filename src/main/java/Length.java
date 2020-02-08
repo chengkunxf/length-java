@@ -39,10 +39,10 @@ public class Length {
                 result = new Length(value, temp_unit);
             } else if (temp_unit == Unit.YARD) {
                 value = value / 36;
-                result = new Length(value, temp_unit);
             }
         }
 
+        result = new Length(value, temp_unit);
         return result;
     }
 
