@@ -11,12 +11,12 @@ public class Length {
     }
 
     public Length temp_as(Unit tempUnit) {
-        Length len = this;
         double value = this.value;
         if (this.tempUnit == Unit.FOOT) {
             if (tempUnit == Unit.YARD) {
                 value = this.value / 3;
-            } else if (tempUnit == Unit.INCH) {
+            }
+            if (tempUnit == Unit.INCH) {
                 value = this.value * 12;
             }
         }
@@ -37,8 +37,7 @@ public class Length {
             }
         }
 
-        len = new Length(value, tempUnit);
-        return len;
+        return new Length(value, tempUnit);
     }
 
     public double getVal() {
