@@ -1,7 +1,4 @@
 public class Length {
-    public static final String FOOT = "f";
-    public static final String YARD = "yard";
-    public static final String INCH = "inch";
     private final double value;
     private Unit tempUnit;
 
@@ -11,9 +8,7 @@ public class Length {
     }
 
     public Length temp_as(Unit tempUnit) {
-        double value = calculateValue(tempUnit);
-
-        return new Length(value, tempUnit);
+        return new Length(calculateValue(tempUnit), tempUnit);
     }
 
     private double calculateValue(Unit tempUnit) {
@@ -51,20 +46,6 @@ public class Length {
     }
 
     public Unit getTempUnit() {
-        return tempUnit;
-    }
-
-    private static Unit convertStringToUnit(String unit) {
-        Unit tempUnit = null;
-        if (unit.equals(YARD)) {
-            tempUnit = Unit.YARD;
-        }
-        if (unit.equals(FOOT)) {
-            tempUnit = Unit.FOOT;
-        }
-        if (unit.equals(INCH)) {
-            tempUnit = Unit.INCH;
-        }
         return tempUnit;
     }
 }
