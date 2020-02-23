@@ -5,42 +5,41 @@ public class Length {
     private final double value;
     private Unit tempUnit;
 
-    public Length(double value, String unit) {
-        this(value, convertStringToUnit(unit));
-    }
-
     public Length(double value, Unit tempUnit) {
         this.value = value;
         this.tempUnit = tempUnit;
     }
 
-    public Length as(String targetUnit) {
-        return temp_as(convertStringToUnit(targetUnit));
-    }
-
     public Length temp_as(Unit tempUnit) {
         Length len = this;
+        double value = this.value;
         if (this.tempUnit == Unit.FOOT) {
             if (tempUnit == Unit.YARD) {
-                len = new Length(this.value / 3, tempUnit);
+                value = this.value / 3;
+                len = new Length(value, tempUnit);
             } else if (tempUnit == Unit.INCH) {
-                len = new Length(this.value * 12, tempUnit);
+                value = this.value * 12;
+                len = new Length(value, tempUnit);
             }
         }
 
         if (this.tempUnit == Unit.YARD) {
             if (tempUnit == Unit.INCH) {
-                len = new Length(this.value * 36, tempUnit);
+                value = this.value * 36;
+                len = new Length(value, tempUnit);
             } else if (tempUnit == Unit.FOOT) {
-                len = new Length(this.value * 3, tempUnit);
+                value = this.value * 3;
+                len = new Length(value, tempUnit);
             }
         }
 
         if (this.tempUnit == Unit.INCH) {
             if (tempUnit == Unit.FOOT) {
-                len = new Length(this.value / 12, tempUnit);
+                value = this.value / 12;
+                len = new Length(value, tempUnit);
             } else if (tempUnit == Unit.YARD) {
-                len = new Length(this.value / 36, tempUnit);
+                value = this.value / 36;
+                len = new Length(value, tempUnit);
             }
         }
 
