@@ -7,7 +7,21 @@ public class Length {
     private Unit tempUnit;
 
     public Length(double value, String unit) {
-        this(value, unit, null);
+        this(value, unit, convertStringToUnit(unit));
+    }
+
+    private static Unit convertStringToUnit(String unit) {
+        Unit tempUnit = null;
+        if (unit.equals(YARD)) {
+            tempUnit = Unit.YARD;
+        }
+        if (unit.equals(FOOT)) {
+            tempUnit = Unit.FOOT;
+        }
+        if (unit.equals(INCH)) {
+            tempUnit = Unit.INCH;
+        }
+        return tempUnit;
     }
 
     public Length(double value, String unit, Unit tempUnit) {
@@ -17,17 +31,7 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
-        Unit tempUnit = null;
-        if (targetUnit.equals(YARD)) {
-            tempUnit = Unit.YARD;
-        }
-        if (targetUnit.equals(FOOT)) {
-            tempUnit = Unit.FOOT;
-        }
-        if (targetUnit.equals(INCH)) {
-            tempUnit = Unit.INCH;
-        }
-        return temp_as(targetUnit, tempUnit);
+        return temp_as(targetUnit, convertStringToUnit(targetUnit));
     }
 
     public Length temp_as(String targetUnit, Unit tempUnit) {
