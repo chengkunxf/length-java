@@ -57,6 +57,10 @@ public class Length {
         return this.unit;
     }
 
+    public Unit getTempUnit() {
+        return tempUnit;
+    }
+
     private static Unit convertStringToUnit(String unit) {
         Unit tempUnit = null;
         if (unit.equals(YARD)) {
