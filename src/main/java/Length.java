@@ -11,20 +11,28 @@ public class Length {
     }
 
     public Length temp_as(Unit tempUnit) {
+        double value = calculateValue(tempUnit);
+
+        return new Length(value, tempUnit);
+    }
+
+    private double calculateValue(Unit tempUnit) {
         double value = this.value;
         if (this.tempUnit == Unit.FOOT) {
             if (tempUnit == Unit.YARD) {
-                value = this.value / 3;
+                return this.value / 3;
             }
             if (tempUnit == Unit.INCH) {
-                value = this.value * 12;
+                return this.value * 12;
             }
         }
 
         if (this.tempUnit == Unit.YARD) {
             if (tempUnit == Unit.INCH) {
                 value = this.value * 36;
-            } else if (tempUnit == Unit.FOOT) {
+                return value;
+            }
+            if (tempUnit == Unit.FOOT) {
                 value = this.value * 3;
             }
         }
@@ -32,12 +40,12 @@ public class Length {
         if (this.tempUnit == Unit.INCH) {
             if (tempUnit == Unit.FOOT) {
                 value = this.value / 12;
-            } else if (tempUnit == Unit.YARD) {
+            }
+            if (tempUnit == Unit.YARD) {
                 value = this.value / 36;
             }
         }
-
-        return new Length(value, tempUnit);
+        return value;
     }
 
     public double getVal() {
