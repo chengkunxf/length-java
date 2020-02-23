@@ -15,32 +15,32 @@ public class Length {
     }
 
     public Length as(String targetUnit) {
-        return temp_as(targetUnit, convertStringToUnit(targetUnit));
+        return temp_as(convertStringToUnit(targetUnit));
     }
 
-    public Length temp_as(String targetUnit, Unit tempUnit) {
+    public Length temp_as(Unit tempUnit) {
         Length len = this;
         if (this.tempUnit == Unit.FOOT) {
             if (tempUnit == Unit.YARD) {
-                len = new Length(this.value / 3, targetUnit);
+                len = new Length(this.value / 3, tempUnit);
             } else if (tempUnit == Unit.INCH) {
-                len = new Length(this.value * 12, targetUnit);
+                len = new Length(this.value * 12, tempUnit);
             }
         }
 
         if (this.tempUnit == Unit.YARD) {
             if (tempUnit == Unit.INCH) {
-                len = new Length(this.value * 36, targetUnit);
+                len = new Length(this.value * 36, tempUnit);
             } else if (tempUnit == Unit.FOOT) {
-                len = new Length(this.value * 3, targetUnit);
+                len = new Length(this.value * 3, tempUnit);
             }
         }
 
         if (this.tempUnit == Unit.INCH) {
             if (tempUnit == Unit.FOOT) {
-                len = new Length(this.value / 12, targetUnit);
+                len = new Length(this.value / 12, tempUnit);
             } else if (tempUnit == Unit.YARD) {
-                len = new Length(this.value / 36, targetUnit);
+                len = new Length(this.value / 36, tempUnit);
             }
         }
 
