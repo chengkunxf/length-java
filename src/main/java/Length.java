@@ -17,7 +17,6 @@ public class Length {
     }
 
     private double calculateValue(Unit tempUnit) {
-        double value = this.value;
         if (this.tempUnit == Unit.FOOT) {
             if (tempUnit == Unit.YARD) {
                 return this.value / 3;
@@ -29,23 +28,22 @@ public class Length {
 
         if (this.tempUnit == Unit.YARD) {
             if (tempUnit == Unit.INCH) {
-                value = this.value * 36;
-                return value;
+                return this.value * 36;
             }
             if (tempUnit == Unit.FOOT) {
-                value = this.value * 3;
+                return this.value * 3;
             }
         }
 
         if (this.tempUnit == Unit.INCH) {
             if (tempUnit == Unit.FOOT) {
-                value = this.value / 12;
+                return this.value / 12;
             }
             if (tempUnit == Unit.YARD) {
-                value = this.value / 36;
+                return this.value / 36;
             }
         }
-        return value;
+        return this.value;
     }
 
     public double getVal() {
