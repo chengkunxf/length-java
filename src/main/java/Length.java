@@ -5,8 +5,8 @@ public class Length {
     private final double value;
     private final String unit;
 
-    public Length(double val, String unit) {
-        this.value = val;
+    public Length(double value, String unit) {
+        this.value = value;
         this.unit = unit;
     }
 
